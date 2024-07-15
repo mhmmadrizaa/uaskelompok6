@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include <stdbool.h> // Tambahkan ini untuk menggunakan tipe bool
+#include <stdbool.h> 
 
 // Definisi struct untuk menyimpan data reservasi
 typedef struct {
@@ -18,4 +18,26 @@ bool validasiMeja(Reservasi reservasi[], int jumlahReservasi, const char tanggal
         }
     }
     return true; // Meja tersedia
+}
+// Fungsi untuk menambah reservasi
+void tambahReservasi(Reservasi reservasi[], int *jumlahReservasi) {
+    char tanggal[20], waktu[10];
+    
+    printf("Masukkan nama: ");
+    scanf("%s", reservasi[*jumlahReservasi].nama);
+    printf("Masukkan jumlah orang: ");
+    scanf("%d", &reservasi[*jumlahReservasi].jumlahOrang);
+    printf("Masukkan tanggal (DD-MM-YYYY): ");
+    scanf("%s", tanggal);
+    printf("Masukkan waktu (HH:MM): ");
+    scanf("%s", waktu);
+    
+    if(validasiMeja(reservasi, *jumlahReservasi, tanggal, waktu)) {
+        strcpy(reservasi[*jumlahReservasi].tanggal, tanggal);
+        strcpy(reservasi[*jumlahReservasi].waktu, waktu);
+        (*jumlahReservasi)++;
+        printf("Reservasi berhasil ditambahkan.\n");
+    } else {
+        printf("Meja sudah dipesan pada waktu tersebut. Silakan pilih waktu lain.\n");
+    }
 }
