@@ -52,3 +52,19 @@ void tampilkanReservasi(Reservasi reservasi[], int jumlahReservasi) {
         printf("--------------------------\n");
     }
 }
+// Fungsi untuk menghapus reservasi
+void hapusReservasi(Reservasi reservasi[], int *jumlahReservasi) {
+    int nomor;
+    printf("Masukkan nomor reservasi yang ingin dihapus: ");
+    scanf("%d", &nomor);
+    
+    if(nomor > 0 && nomor <= *jumlahReservasi) {
+        for(int i = nomor - 1; i < *jumlahReservasi - 1; i++) {
+            reservasi[i] = reservasi[i + 1];
+        }
+        (*jumlahReservasi)--;
+        printf("Reservasi berhasil dihapus.\n");
+    } else {
+        printf("Nomor reservasi tidak valid.\n");
+    }
+}
