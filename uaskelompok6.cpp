@@ -41,3 +41,14 @@ void tambahReservasi(Reservasi reservasi[], int *jumlahReservasi) {
         printf("Meja sudah dipesan pada waktu tersebut. Silakan pilih waktu lain.\n");
     }
 }
+// Fungsi untuk menampilkan daftar reservasi
+void tampilkanReservasi(Reservasi reservasi[], int jumlahReservasi) {
+    for(int i = 0; i < jumlahReservasi; i++) {
+        printf("Reservasi %d\n", i + 1);
+        printf("Nama: %s\n", reservasi[i].nama);
+        printf("Jumlah Orang: %d\n", reservasi[i].jumlahOrang);
+        printf("Tanggal: %s\n", reservasi[i].tanggal);
+        printf("Waktu: %s\n", reservasi[i].waktu);
+        printf("--------------------------\n");
+    }
+}
