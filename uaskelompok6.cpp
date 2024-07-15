@@ -77,3 +77,38 @@ int validasiMeja(Reservasi reservasi[], int jumlahReservasi, char tanggal[], cha
     }
     return 1; // Meja tersedia
 }
+// Menu utama
+int main() {
+    Reservasi reservasi[100];
+    int jumlahReservasi = 0;
+    int pilihan;
+    
+    do {
+        printf("Menu:\n");
+        printf("1. Tambah Reservasi\n");
+        printf("2. Tampilkan Reservasi\n");
+        printf("3. Hapus Reservasi\n");
+        printf("4. Keluar\n");
+        printf("Pilih opsi: ");
+        scanf("%d", &pilihan);
+        
+        switch(pilihan) {
+            case 1:
+                tambahReservasi(reservasi, &jumlahReservasi);
+                break;
+            case 2:
+                tampilkanReservasi(reservasi, jumlahReservasi);
+                break;
+            case 3:
+                hapusReservasi(reservasi, &jumlahReservasi);
+                break;
+            case 4:
+                printf("Terima kasih telah menggunakan aplikasi ini.\n");
+                break;
+            default:
+                printf("Pilihan tidak valid.\n");
+        }
+    } while(pilihan != 4);
+    
+    return 0;
+}
